@@ -10,8 +10,8 @@ const mongo = require('mongojs');
 // Global VARS
 //----------------------------------------------------------------------------------
 const app = express();
-const port = 3000;
 const db = mongo('ecommerce2', ['products']);
+const port = 3000;
 
 //----------------------------------------------------------------------------------
 // MiddleWare
@@ -30,7 +30,7 @@ app.post('/api/products', (req, res, next) => {
     })
 });
 app.get('/api/products', (req, res, next) => {
-    db.products.find({}, (err, response) => {
+    db.products.find(req.query, (err, response) => {
         return err ? res.status(500).json(err) : res.status(200).json(response);
     })
 });
