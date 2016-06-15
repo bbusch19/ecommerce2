@@ -3,6 +3,7 @@ angular.module('ecommerce').controller('mainCtrl', function($scope, mainSvc) {
     $scope.getProducts = function() {
         mainSvc.getProducts().then(function(response) {
             $scope.products = response;
+            
         })
     }
     $scope.getProducts();
@@ -20,3 +21,4 @@ angular.module('ecommerce').controller('mainCtrl', function($scope, mainSvc) {
     }
 
 })
+
